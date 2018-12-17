@@ -1,0 +1,2 @@
+New-TransportRule -Name 'Quaratine sextortion messages' -Comments '
+' -Mode Enforce -SubjectOrBodyContainsWords 'bitcoin', 'btc' -SubjectOrBodyMatchesPatterns '([13][a-km-zA-HJ-NP-Z0-9]{26,33})' -SetAuditSeverity 'Medium' -Quarantine $true
