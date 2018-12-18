@@ -12,7 +12,12 @@ You must first authenticate and connect to Exchange Online using an account with
 ```powershell
 Import-PSSession $(New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $(Get-Credential) -Authentication Basic -AllowRedirection) -DisableNameChecking
 ```
-If you are required to authenticate against MFA, this command will not work. [Follow Microsoft's special instructions here.](https://docs.microsoft.com/en-us/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell?view=exchange-ps)
+
+If you are required to authenticate against MFA, this command will not work. [Follow Microsoft's special instructions here.](https://docs.microsoft.com/en-us/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell?view=exchange-ps). If you are running PowerShell 5 or later, you can install the PowerShell module "ExchangeOnlineShell" from PowerShellGallery. This module contains the cmdlet "Connect-ExchangeOnlineShell" which will accomplish everything described in Microsoft's instructions linked above. Please use at your own discretion:
+
+```powershell
+Install-Module -Name ExchangeOnlineShell
+```
 
 ### Set PowerShell execution policy to unrestricted
 
