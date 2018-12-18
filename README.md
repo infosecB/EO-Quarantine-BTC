@@ -10,6 +10,6 @@ You must first [authenticate and connect to Exchange Online](https://docs.micros
 ```powershell
 Import-PSSession $(New-PSSession -ConfigurationName Microsoft.Exchange -ConnectionUri https://outlook.office365.com/powershell-liveid/ -Credential $(Get-Credential) -Authentication Basic -AllowRedirection) -DisableNameChecking
 ```
-If you are required to authenticate against MFA, [follow Microsoft's instructions](https://docs.microsoft.com/en-us/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell?view=exchange-ps).
+If you are required to authenticate against MFA, this command will not work. [Follow Microsoft's instructions here.](https://docs.microsoft.com/en-us/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell?view=exchange-ps).
 
 
