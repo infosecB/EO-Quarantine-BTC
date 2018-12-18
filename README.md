@@ -5,6 +5,6 @@ A PowerShell command that creates a transport rule in Exchange Online to quarant
 
 ## Usage
 
-You must first [authenticate and connect to Exchange Online](https://docs.microsoft.com/en-us/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/connect-to-exchange-online-powershell) using an account with the [appropriate permissions](https://docs.microsoft.com/en-us/exchange/permissions-exo/permissions-exo). 
+You must first [authenticate and connect to Exchange Online](https://docs.microsoft.com/en-us/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/connect-to-exchange-online-powershell) using an account with the [appropriate permissions](https://docs.microsoft.com/en-us/exchange/permissions-exo/permissions-exo). The Powershell command used to connect to an instance that is not behind MFA here:
 
-
+<script src="https://gist.github.com/infosecB/537f5267ac11b386ba23582292a54595.js"></script>
