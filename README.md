@@ -1,8 +1,6 @@
 # Quarantine-BTC-Messages
 A PowerShell cmdlet that creates a transport rule in Exchange Online to quarantine [Sextortion-style messages](https://krebsonsecurity.com/2018/07/sextortion-scam-uses-recipients-hacked-passwords/).
 
-## Introduction
-
 ## Usage
 
 ### Connect to Exchange Online
@@ -29,14 +27,39 @@ Set-ExecutionPolicy -ExecutionPolicy Unrestricted
 
 ### Import the cmdlet
 
-In PowerShell, navigate to the directory where you downloaded and extracted the script. Run the following command to  
+In PowerShell, navigate to the directory where you downloaded and extracted the script. Run the following command to to import the cmdlets:
+
+```powershell
+Import-Module .\QuarantineBTCMessages.ps1
+```
 
 ### Create the transport rule in test mode
 
+To create the transport rule in test mode, enter the following command. Setting the rule to test mode will only audit rule matches to message headers:
+
+```powershell
+Set-BTCTransportRule -Mode Test
+```
+
 ### Create the transport rule in active mode
+
+To create the transport rule in active/production mode, enter the following command. This transport rule will send any messages that match the rule to quarantine:
+
+```powershell
+Set-BTCTransportRule -Mode Active
+```
 
 ### Switch the transport rule from test to active mode
 
+To switch the rule from test to active and vice versa, simply rerun `Set-BTCTransportRule` and specify the appropriate mode.
+
 ### Remove the transport rule
+
+Run the following command to remove the rule:
+
+```powershell
+Remove-BTCTransportRule
+```
+
 
 
