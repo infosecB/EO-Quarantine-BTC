@@ -1,13 +1,14 @@
 function Set-BTCTransportRule {
     param (
-        [switch]$Test=$false,
-        [switch]$Active=$false,
-        [string]$Name='Quaratine BTC messages'
+        [string]$Name='Quaratine BTC messages',
+        [Parameter(Mandatory=$true)]
+        [ValidateSet('Test','Active')]
+        [string]$Mode
     )
     
     Try{
 
-        Get-Mailbox | Select-Object -First 1
+        Get-Command New-TransportRule
 
     }Catch{
 
@@ -15,26 +16,16 @@ function Set-BTCTransportRule {
 
     }
 
-    If($Test){
+    If($Mode -eq 'Test'){
 
         New-TransportRule -Name $Name -Comments '' -Mode Audit -SubjectOrBodyContainsWords 'bitcoin', 'btc' -SubjectOrBodyMatchesPatterns '([13][a-km-zA-HJ-NP-Z0-9]{26,33})' -SetAuditSeverity 'Low' -Quarantine $true
 
-    }Else{
+    }Elseif($Mode -eq 'Active'){
 
         New-TransportRule -Name $Name -Comments '' -Mode Enforce -SubjectOrBodyContainsWords 'bitcoin', 'btc' -SubjectOrBodyMatchesPatterns '([13][a-km-zA-HJ-NP-Z0-9]{26,33})' -SetAuditSeverity 'Low' -Quarantine $true
 
     }   
 }
-
-function Edit-BTCTransportRule {
-    param (
-        [string]$Name,
-        [switch]$Test,
-        [switch]
-    )
-    
-}
-
 function Remove-BTCTransportRule {
     param(
         [Parameter()]

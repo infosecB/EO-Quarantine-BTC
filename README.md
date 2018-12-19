@@ -1,4 +1,4 @@
-# EO-Quarantine-Sextortion
+# Quarantine-BTC-Messages
 A PowerShell cmdlet that creates a transport rule in Exchange Online to quarantine [Sextortion-style messages](https://krebsonsecurity.com/2018/07/sextortion-scam-uses-recipients-hacked-passwords/).
 
 ## Introduction
